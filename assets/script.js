@@ -1,17 +1,16 @@
 // //This will display the date and time at the top.
-
-$("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 var currentTime = moment();
+$("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
 currentTime = currentTime.startOf('hour');
 var beforeTime = moment().startOf('day').add(9, 'hours');
 var schedule9 = document.getElementById("9")
 var schedule10 = document.getElementById("10")
 var schedule11 = document.getElementById("11")
 var schedule12 = document.getElementById("12")
-var schedule1 = document.getElementById("1")
-var schedule2 = document.getElementById("2")
-var schedule3 = document.getElementById("3")
-var schedule4 = document.getElementById ("4")
+var schedule13 = document.getElementById("13")
+var schedule14 = document.getElementById("14")
+var schedule15 = document.getElementById("15")
+var schedule16 = document.getElementById ("16")
 
 // // This will save to the local storage
 $(".Btn9").click(function (){
@@ -48,31 +47,31 @@ $(".Btn12").click(function (){
 
 $(".Btn1").click(function (){
     console.log(schedule1.value);
-    var newAppointment1 = schedule1.value
+    var newAppointment13 = schedule13.value
     localStorage.setItem("One", newAppointment1)
     console.log("it works!")
     console.log(localStorage.getItem("One"))
 });
 
 $(".Btn2").click(function (){
-    console.log(schedule2.value);
-    var newAppointment2 = schedule2.value
+    console.log(schedule14.value);
+    var newAppointment14 = schedule14.value
     localStorage.setItem("Two", newAppointment2)
     console.log("it works!")
     console.log(localStorage.getItem("Two"))
 });
 
 $(".Btn3").click(function (){
-    console.log(schedule3.value);
-    var newAppointment3 = schedule3.value
+    console.log(schedule15.value);
+    var newAppointment15 = schedule15.value
     localStorage.setItem("Three", newAppointment3)
     console.log("it works!")
     console.log(localStorage.getItem("Three"))
 });
 
 $(".Btn4").click(function (){
-    console.log(schedule4.value);
-    var newAppointment4 = schedule4.value
+    console.log(schedule16.value);
+    var newAppointment16 = schedule16.value
     localStorage.setItem("Four", newAppointment4)
     console.log("it works!")
     console.log(localStorage.getItem("Four"))
@@ -84,13 +83,12 @@ function resetPage(){
     schedule10.innerHTML = localStorage.getItem("Ten");
     schedule11.innerHTML = localStorage.getItem("Eleven");
     schedule12.innerHTML = localStorage.getItem("Twelve");
-    schedule1.innerHTML = localStorage.getItem("One");
-    schedule2.innerHTML = localStorage.getItem("Two");
-    schedule3.innerHTML = localStorage.getItem("Three");
-    schedule4.innerHTML = localStorage.getItem("Four")
+    schedule13.innerHTML = localStorage.getItem("One");
+    schedule14.innerHTML = localStorage.getItem("Two");
+    schedule15.innerHTML = localStorage.getItem("Three");
+    schedule16.innerHTML = localStorage.getItem("Four")
 }
 
-resetPage();
 //This will change the colors of the text area as time passes.
 //future = green (hardcoded) present = orange   past = grey
 function colorTimeblocks(){
@@ -114,42 +112,60 @@ function colorTimeblocks(){
         schedule10.style.backgound = "grey"
         schedule11.style.background = "grey"
         schedule12.style.background = "grey"
-        schedule1.style.background =  "orange"
+        schedule13.style.background =  "orange"
     }  else if(currentTime >= 2 && currentTime < 3){
         schedule9.style.background = "grey"
         schedule10.style.backgound = "grey"
         schedule11.style.background = "grey"
         schedule12.style.background = "grey"
-        schedule1.style.background =  "grey"
-        schedule2.style.background = "orange"
-    } else if(currentTime >= 2 && currentTime < 3){
-        schedule9.style.background = "grey"
-        schedule10.style.backgound = "grey"
-        schedule11.style.background = "grey"
-        schedule12.style.background = "grey"
-        schedule1.style.background =  "grey"
-        schedule2.style.background = "grey"
-        schedule3.style.background = "orange"
+        schedule13.style.background =  "grey"
+        schedule14.style.background = "orange"
     } else if(currentTime >= 3 && currentTime < 4){
         schedule9.style.background = "grey"
         schedule10.style.backgound = "grey"
         schedule11.style.background = "grey"
         schedule12.style.background = "grey"
-        schedule1.style.background =  "grey"
-        schedule2.style.background = "grey"
-        schedule3.style.background = "grey"
-        schedule4.style.background = "orange"
+        schedule13.style.background =  "grey"
+        schedule14.style.background = "grey"
+        schedule15.style.background = "orange"
+    } else if(currentTime >= 4 && currentTime < 5){
+        schedule9.style.background = "grey"
+        schedule10.style.backgound = "grey"
+        schedule11.style.background = "grey"
+        schedule12.style.background = "grey"
+        schedule13.style.background =  "grey"
+        schedule14.style.background = "grey"
+        schedule15.style.background = "grey"
+        schedule16.style.background = "orange"
     } else{
         schedule9.style.background = "grey"
         schedule10.style.backgound = "grey"
         schedule11.style.background = "grey"
         schedule12.style.background = "grey"
-        schedule1.style.background =  "grey"
-        schedule2.style.background = "grey"
-        schedule3.style.background = "grey"
-        schedule4.style.background = "grey"
+        schedule13.style.background = "grey"
+        schedule14.style.background = "grey"
+        schedule15.style.background = "grey"
+        schedule16.style.background = "grey"
     };
 }
 
-colorTimeblocks();
+// colorTimeblocks();
+// function updateSlots(){
+//     var currentTime = moment().hour()
+//     for (var i = 0; i < 24; i++){
+//         var slotRow = document.getElementById(i)
+
+//         if(slotRow){
+//             console.log(slotRow)
+//             var slotHour = parseInt(slotRow.getAttribute("id"))
+//             slotRow.style.background = "green"
+//             if(currentTime === slotHour) slotRow.style.background="orange"
+//             if(currentTime > slotHour) slotRow.style.background="grey"
+//         }
+//     }
+// };
+
+resetPage()
+
+
 
